@@ -1,9 +1,9 @@
-require('dotenv').config();
+require('dotenv').config()
 
-// var Twitter = require('twitter');
-// var Spotify = require('node-spotify-api');
-var request = require('request');
 // var keys = require(“./keys.js”);
+var Twitter = require('twitter');
+var Spotify = require('node-spotify-api');
+var request = require('request');
 
 var command = process.argv[2];
 var argument = process.argv;
@@ -18,10 +18,7 @@ var input = "";
 	};
 
 switch (command) {
-	// case "my-tweets":
-	// 	tweet();
-	// 	break;
-
+	
 	case "movie-this":
 		if (input) {
 			omdb(input);
@@ -30,40 +27,8 @@ switch (command) {
 			omdb("Mr. Nobody");
 		}
 		break;
-	// case "do-what-it-says":
 
 }
-
-// var client = new Twitter(keys.twitter);
-// var params = {screen_name: 'alpreedo'};
-// client.get('statuses/user_timeline', params, function(error, tweets, response) {
-// 	if (!error) {
-// 		// for (var i = 0, i < tweets.length)
-//     	console.log(tweets);
-// 	}
-// });
-
-
-// var spotify = new Spotify(keys.spotify);
-
-// function tweet() {
-// 	if (userInput == null) {
-// 		userInput = "The Sign Ace of Base";
-// 	}
-// 	spotify.search(
-// 		{
-// 			type: 'track',
-// 			query: userInput
-// 		},
-		
-// 		function(err, data) {
-// 			var song;
-// 			if (err) {
-// 				return console.log('Error occurred: ' + err);
-// 			}
-// 			console.log(data); 
-// 	});
-// };
 
 function omdb(movie) {
 	var queryUrl = "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
@@ -88,3 +53,8 @@ function omdb(movie) {
 		}
 	});
 }
+
+var client = new Twitter(keys.twitter);
+
+
+var spotify = new Spotify(keys.spotify);
