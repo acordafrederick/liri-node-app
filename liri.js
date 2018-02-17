@@ -1,9 +1,15 @@
-require('dotenv').config()
+var dotenv = require('dotenv').config();
 
+var request = require('request');
 // var keys = require(“./keys.js”);
+
 var Twitter = require('twitter');
 var Spotify = require('node-spotify-api');
-var request = require('request');
+
+var fs = require('fs');
+
+// var client = new Twitter(keys.twitter);
+// var spotify = new Spotify(keys.spotify);
 
 var command = process.argv[2];
 var argument = process.argv;
@@ -54,7 +60,4 @@ function omdb(movie) {
 	});
 }
 
-var client = new Twitter(keys.twitter);
 
-
-var spotify = new Spotify(keys.spotify);
